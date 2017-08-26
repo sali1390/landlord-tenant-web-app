@@ -1,0 +1,38 @@
+<div class="bar bar-header bar-light">
+  <h1 class="title">Active Requests  <i class="icon ion-plus" style="text-align:right" ng-click="TRequestsVM.newRequest()"></i></h1>
+</div>
+<ion-view>
+  <ion-content class="has-header">
+    <!--<div class="bar bar-header bar-light">-->
+      <!--<h1 class="title">Your Properties</h1>-->
+    <!--</div>-->
+    <div ng-repeat="request in TRequestsVM.requests" class="propCard">
+      <div class="card">
+        <div class="item item-text-wrap">
+          <p class="reqTitle">{{request.title}}</p>
+          <p class="reqDate">Submitted: {{request.dateRequested | date : "EEEE, MMMM d, y h:mm a" }}</p>
+        </div>
+        <div class="reqDes">
+            <p>{{request.description}}</p>
+        </div>
+      </div>
+      <br>
+    </div>
+  </ion-content>
+</ion-view>
+<div class="tabs-striped tabs-color-calm">
+  <div class="tabs">
+    <a class="tab-item active" ui-sref="trequests">
+      <i class="icon ion-gear-a"></i>
+      Settings
+    </a>
+    <a class="tab-item" ui-sref="inbox">
+      <i class="icon ion-archive"></i>
+      Settings
+    </a>
+    <a class="tab-item" ui-sref="tuserProfile">
+      <i class="icon ion-person"></i>
+      User Profile
+    </a>
+  </div>
+</div>

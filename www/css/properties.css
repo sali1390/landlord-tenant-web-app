@@ -1,0 +1,22 @@
+.propcard {
+  padding: 0;
+  margin: 0;
+}
+
+.propimage {
+  width: auto;
+  min-height: 100%;
+}
+
+h3, h4, h5, p {
+  font-family: 'Muli', sans-serif;
+  margin: 4px;
+}
+
+.street {
+  text-align: left;
+}
+
+.citystatezip {
+  text-align:left;
+}

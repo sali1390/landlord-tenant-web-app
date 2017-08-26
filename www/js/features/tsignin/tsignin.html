@@ -1,0 +1,26 @@
+<ion-view view-title="Landlord Sign-In">
+  <ion-content>
+    <div class="">
+      <p class="signintitle">Sign In</p>
+    </div>
+
+    <div class="row signinform">
+      <div class="col col-70 col-offset-15">
+        <div class="list list-inset">
+          <label class="item item-input">
+            <input type="text" name="email" placeholder="Email Address" ng-model="TSigninVM.userInfo.email">
+          </label>
+          <label class="item item-input">
+            <input type="password" name="password" placeholder="Password" ng-model="TSigninVM.userInfo.password">
+          </label>
+        </div>
+        <br>
+        <button class="button button-default button-block center-button" ng-click="TSigninVM.continue()">
+          SIGN IN
+        </button>
+        <br>
+        <button ng-click="TSigninVM.signup()" class="signup">Don't have an account? Sign up now.</button>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,47 @@
+<div class="bar bar-header bar-light">
+  <h1 class="title">Active Requests</h1>
+</div>
+<ion-view>
+  <ion-content class="has-header">
+    <!--<div class="bar bar-header bar-light">-->
+      <!--<h1 class="title">Your Properties</h1>-->
+    <!--</div>-->
+    <request ng-repeat="request in RequestsVM.requests">
+      <div class="card">
+        <div class="item item-text-wrap">
+          <p class="reqTitle">{{request.title}}</p>
+          <p class="reqDate">Submitted: {{ request.dateRequested | date : "EEEE, MMMM d, y h:mm a" }}</p>
+          <p class="reqDate">Submitted By: {{request.tenant_id[0].firstName}} {{request.tenant_id[0].lastName}}</p>
+        </div>
+        <div class="reqDes">
+          <p>{{request.description}}</p>
+        </div>
+      </div>
+      <br>
+    </request>
+  </ion-content>
+</ion-view>
+<div class="tabs-striped tabs-color-calm">
+  <div class="tabs">
+    <a class="tab-item" ui-sref="properties">
+      <i class="icon ion-home"></i>
+      Test
+    </a>
+    <a class="tab-item" ui-sref="tenants">
+      <i class="icon ion-ios-people"></i>
+      Favorites
+    </a>
+    <a class="tab-item active" ui-sref="requests">
+      <i class="icon ion-gear-a"></i>
+      Settings
+    </a>
+    <a class="tab-item" ui-sref="inbox">
+      <i class="icon ion-archive"></i>
+      Settings
+    </a>
+    <a class="tab-item" ui-sref="userProfile">
+      <i class="icon ion-person"></i>
+      Settings
+    </a>
+  </div>
+</div>
