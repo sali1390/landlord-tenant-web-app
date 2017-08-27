@@ -25,7 +25,7 @@ var TenantSchema = new Schema({
       "Your password needs to be longer."
     ]
   },
-  landlord: {
+  isLandlord: {
     type: Boolean,
     default: false
   },

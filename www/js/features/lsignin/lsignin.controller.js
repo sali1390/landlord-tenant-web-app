@@ -2,7 +2,7 @@ angular
   .module('landlordTenant.lsignin')
   .controller('LSigninCtrl', LSigninCtrl);
 
-function LSigninCtrl($http, $state) {
+function LSigninCtrl($http, $state, $anchorScroll) {
   var vm = this;
   vm.userInfo = {};
 
@@ -31,11 +31,11 @@ function LSigninCtrl($http, $state) {
             sessionStorage.setItem('isLandlord', res.data[i].landlord);
             sessionStorage.setItem('userName', res.data[i].firstName);
 
-            $state.go("properties")
+            $state.go("properties");
 
             return;
           } else {
-            $state.go("signup")
+            $state.go("signup", {id: 'newLandlord'});
           }
         }
       });
@@ -44,6 +44,8 @@ function LSigninCtrl($http, $state) {
   };
 
   vm.signup = function() {
-    $state.go("signup");
+    $state.go("signup").then(function() {
+      $anchorScroll({id: 'newLandlord'});
+    })
   }
 }

@@ -2,7 +2,7 @@ angular
   .module('landlordTenant.tsignin')
   .controller('TSigninCtrl', TSigninCtrl);
 
-function TSigninCtrl($http, $state) {
+function TSigninCtrl($http, $state, $anchorScroll) {
   var vm = this;
   vm.userInfo = {};
 
@@ -37,7 +37,7 @@ function TSigninCtrl($http, $state) {
 
             return;
           } else {
-            $state.go("signup")
+            $state.go("signup", {id: 'newTenant'});
           }
         }
       });
@@ -47,5 +47,6 @@ function TSigninCtrl($http, $state) {
 
   vm.signup = function() {
     $state.go("signup");
+
   }
 }

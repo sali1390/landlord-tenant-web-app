@@ -191,30 +191,42 @@ app.get("/api/messages", function(req, res) {
   }])
 });
 
-app.post("/api/landlords", function(req, res) {
-  Landlord.create({
+app.post("/api/landlords", function(req, res){
+  var newLandlord = new Landlord({
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     email: req.body.email,
     password: req.body.password
-  }, function(err) {
-    if (err) return handleError(err);
   });
 
-  res.end();
+  newLandlord.save(function(err, newLandlord){
+    if(err){
+      res.json(err)
+    } else {
+      res.json(newLandlord)
+    }
+  });
 });
 
 app.post("/api/tenants", function(req, res) {
-  Tenant.create({
+  var newTenant = new Tenant({
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     email: req.body.email,
     password: req.body.password
-  }, function(err) {
-    if (err) return handleError(err);
   });
 
-  res.end();
+  newTenant.save(function(err, newTenant){
+    if(err){
+      res.json(err);
+
+      console.log(err);
+    } else {
+      res.json(newTenant);
+
+      console.log(newTenant);
+    }
+  })
 });
 
 app.post("/api/properties", function(req, res) {

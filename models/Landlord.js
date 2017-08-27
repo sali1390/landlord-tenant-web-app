@@ -29,7 +29,7 @@ var LandlordSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'Tenant'
   }],
-  landlord: {
+  isLandlord: {
     type: Boolean,
     default: true
   },
