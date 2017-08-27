@@ -230,17 +230,25 @@ app.post("/api/tenants", function(req, res) {
 });
 
 app.post("/api/properties", function(req, res) {
-  Property.create({
+  var newProperty = new Property({
     streetAddress: req.body.streetAddress,
     city: req.body.city,
     state: req.body.state,
     zip: req.body.zip,
     landlord_id: req.body.landlordid
-  }, function(err) {
-    if (err) return handleError(err);
   });
 
-  res.end();
+  newProperty.save(function(err, newProperty){
+    if(err){
+      res.json(err);
+
+      console.log(err);
+    } else {
+      res.json(newProperty);
+
+      console.log(newProperty);
+    }
+  })
 });
 
 app.post("/api/requests", function(req, res) {
